@@ -1,0 +1,78 @@
+<view class="package">
+  <view class="top">
+    <view class="labels">
+      <view class="onlyCode">    唯一码：                                                                      
+        <input onInput="bindKeyInput1" onConfirm="searchBtn" focus="{{isfocus}}" value="{{code}}" onBlur="onblur"/>
+      </view>
+      <view class="title">商品列表                                                              
+      </view>
+    </view>
+    <view class="list" a:if="{{goodsList.length > 0}}">
+      <view class="goodsItem" a:for="{{goodsList}}">
+        <view class="goodsCode">{{item.sku_id}}                                                                                                                
+        </view>
+        <view class="number">{{item.num}}件                                                                                                                
+        </view>
+      </view>
+    </view>
+    <view class="null" a:else>
+      <image src="../../../imgs/kong.png"/>
+      <view>还没有包裹哦                        
+      </view>
+    </view>
+  </view>
+  <view class="buts">
+    <button type="primary" onTap="showBall">完成打包                                              
+    </button>
+    <view class="reset" onTap="reset">重置                                              
+    </view>
+  </view>
+  <view class="demo-item">
+  </view>
+  <!-- 提示弹框 -->
+  <view class="toast" a:if="{{toast}}">
+    <view class="box">
+      <view class="toastCon">        请用PDA扫描                        
+      </view>
+      <view class="know" onTap="ikonw">我知道了                  
+      </view>
+    </view>
+  </view>
+  <!-- 弹框 -->
+  <view class="ball" a:if="{{isBall}}" onTap="closeBall">
+    <view class="content" catchTap>
+      <view class="conTitle">确认包裹信息                              
+      </view>
+      <view class="info">
+        <view class="infoItem">
+          <view class="infoName">供应商：                                                  
+          </view>         
+          <view class="select">
+            <input type="text" placeholder="请选择供应商" onFocus="supOnfocus" onBlur="supOnblur" onInput="bindKeyInput" value="{{supplier}}"/>  
+            <view class="selectBox" a:if="{{isFocus}}">
+              <view class="selItem" a:for="{{searchList}}" data-item="{{item}}" onTap="selItem">{{item.supplier_name}}</view>
+            </view>
+          </view>                                              
+        </view>
+        <view class="infoItem">
+          <view class="infoName">包裹号码：                                                    
+          </view>          {{packageObj.packageId}}                                               
+        </view>
+        <view class="infoItem">
+          <view class="infoName">商品件数：                                                    
+          </view>          {{packageObj.goodsNum}}                                               
+        </view>
+        <view class="infoItem">
+          <view class="infoName">打包日期：                                                    
+          </view>         {{packageObj.time}}                                                
+        </view>
+        <view class="infoItem">
+          <view class="infoName">打包人：                                                    
+          </view>          {{packageObj.operator}}                                                
+        </view>
+      </view>
+      <button class="ok" type="primary" catchTap="ok">确认打包                                                      
+      </button>
+    </view>
+  </view>
+</view>

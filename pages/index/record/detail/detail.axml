@@ -1,0 +1,34 @@
+<view class="detail">
+  <view class="title">
+    <view class="left">
+      <view class="item">类型：{{packageObj.get_type}}            
+      </view>
+      <view class="item">供应商：{{packageObj.supplier_name}}            
+      </view>
+      <view class="item">包裹号码：{{packageObj.package_id}}            
+      </view>
+    </view>
+    <view class="right"> 
+      <view class="item">件数：{{packageObj.goods_num}}件            
+      </view>
+      <view class="look" onTap="goods">查看商品      
+      </view>
+    </view>
+  </view>
+  <view class="express">
+    <view class="status" a:for="{{packageObj.operate_record}}">
+      <image src="../../../../imgs/yuandian.png"/>
+      <view class="content">
+        <view class="top">{{item.operator}}：{{item.operate}}      
+        </view>
+        <view class="bottom">{{item.operate_time}}        
+        </view>
+      </view>
+      <view class="lookImg" onTap="cate" a:if="{{item.operate_sn == 4}}">查看凭证      
+      </view>
+    </view>
+  </view>
+  <view class="cate" a:if="{{showCate}}" onTap="close">
+    <image src="{{packageObj.arrive_img}}"/>
+  </view>
+</view>

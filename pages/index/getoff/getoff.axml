@@ -1,0 +1,46 @@
+<view class="getoff">
+    <view class="packageList" a:if="{{packageList.length > 0}}">
+        <view class="packageItem" a:for="{{packageList}}">
+            <view class="packageCode">供应商：{{item.supplier_name}}                            
+            </view>
+            <view class="xia">
+                <view class="packageInfo">
+                    <view class="infoLeft">
+                        <view class="Item">
+                            <view class="label">包裹号：                                                    
+                            </view>{{item.id}}                                             
+                        </view>
+                        <view class="Item">
+                            <view class="label">打包人：                                                    
+                            </view>{{item.operator}}                                              
+                        </view>
+                    </view>
+                    <view class="infoRight">
+                        <view class="Item">
+                            <view class="label">件数：                                                    
+                            </view>{{item.goods_num}}                                              
+                        </view>
+                        <view class="Item">
+                            <view class="label">日期：                                                    
+                            </view>{{item.pack_time}}                                              
+                        </view>
+                    </view>
+                </view>
+                <view class="delete">
+                    <image src="../../../imgs/shanchu.png" data-index = "{{index}}" onTap="delete"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="null" a:else>
+      <image src="../../../imgs/kong.png"/>
+      <view>一个包裹都没有                                      
+      </view>
+    </view>
+    <view class="buts">
+        <button type="warn" onTap="scan">扫描包裹              
+        </button>
+        <button type="primary" onTap="goIndex">下车               
+        </button>
+    </view>
+</view>

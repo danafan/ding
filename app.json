@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/package/package",
+    "pages/index/truck/truck",
+    "pages/index/getoff/getoff",
+    "pages/index/reach/reach",
+    "pages/index/sendback/sendback",
+    "pages/index/packageDetail/getdetail",
+    "pages/index/carDetail/cardetail",
+    "pages/index/record/record",
+    "pages/index/record/detail/detail",
+    "pages/index/record/detail/goods/goods",
+    "pages/index/claimGoods/claimGoods"
+  ],
+  "window": {
+    "defaultTitle": "退货系统"
+  }
+}

@@ -1,0 +1,29 @@
+<view class="packageBox">
+    <view class="labelList">
+        <view class="labelItem">
+            <view class="label">供应商：</view>
+            <view class="value">{{packageObj.supplier_name}}</view>
+        </view>
+        <view class="labelItem">
+            <view class="label">商品件数：</view>
+            <view class="value">{{packageObj.goods_num}}</view>
+        </view>
+        <view class="labelItem">
+            <view class="label">打包日期：</view>
+            <view class="value">{{packageObj.pack_time}}</view>
+        </view>
+        <view class="labelItem">
+            <view class="label">打包人：</view>
+            <view class="value">{{packageObj.operator}}</view>
+        </view>
+        <view class="labelItem">
+            <view class="label">商品列表</view>
+        </view>
+    </view>
+    <view class="goodsList">
+        <view class="goodsItem" a:for="{{packageObj.goods}}">
+            <view class="code">{{item.sku_id}}</view>
+            <view class="num">{{item.num}}件</view>
+        </view>
+    </view>
+</view>

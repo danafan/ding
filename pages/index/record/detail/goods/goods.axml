@@ -1,0 +1,8 @@
+<view class="goods">
+  <view class="goodsItem" a:for="{{goods}}">
+    <view class="code">{{item.sku_id}}
+    </view>
+    <view class="num">{{item.num}}件
+    </view>
+  </view>
+</view>

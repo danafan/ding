@@ -1,0 +1,47 @@
+<view class="truck">
+    <view class="infoTop">
+        <view class="infoItem">车辆编号：{{carObj.id}}                    
+        </view>
+        <view class="infoItem">车牌名称：{{carObj.plate_number}}                      
+        </view>
+        <view class="infoItem">包裹数量：{{carObj.packageNum}}                      
+        </view>
+        <view class="infoItem">包裹列表                        
+        </view>
+    </view>
+    <view class="list" a:if="{{packageList.length > 0}}">
+        <view class="packageItem" a:for="{{packageList}}" data-id="{{item.id}}" onTap="goodslist">
+            <view class="packageCode">供应商：{{item.supplier_name}}                            
+            </view>
+            <view class="xia">
+                <view class="packageInfo">
+                    <view class="infoLeft">
+                        <view class="Item">
+                            <view class="label">包裹号：                                                    
+                            </view>{{item.id}}                                              
+                        </view>
+                        <view class="Item">
+                            <view class="label">打包人：                                                    
+                            </view>{{item.operator}}                                              
+                        </view>
+                    </view>
+                    <view class="infoRight">
+                        <view class="Item">
+                            <view class="label">件数：                                                    
+                            </view>{{item.goods_num}}                                              
+                        </view>
+                        <view class="Item">
+                            <view class="label">日期：                                                    
+                            </view>{{item.pack_time}}                                              
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="null" a:else>
+        <image src="../../../imgs/kong.png"/>
+        <view>一个包裹都没有                                            
+        </view>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+App({
+  globalData: {
+    username: "",
+    codeObj:{}
+  }
+});

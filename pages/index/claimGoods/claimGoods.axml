@@ -1,0 +1,71 @@
+<view class="claimBox">
+    <view class="packageList" a:if="{{packageList.length > 0}}">
+        <view class="packageItem" a:for="{{packageList}}">
+            <view class="packageCode">供应商：{{item.supplier_name}}                                                    
+            </view>
+            <view class="xia">
+                <view class="packageInfo">
+                    <view class="infoLeft">
+                        <view class="Item">
+                            <view class="label">包裹号：                                                                                                            
+                            </view>{{item.id}}                                                                                              
+                        </view>
+                        <view class="Item">
+                            <view class="label">打包人：                                                                                                            
+                            </view>{{item.operator}}                                                                                              
+                        </view>
+                    </view>
+                    <view class="infoRight">
+                        <view class="Item">
+                            <view class="label">件数：                                                                                                            
+                            </view>{{item.goods_num}}                                                                                              
+                        </view>
+                        <view class="Item">
+                            <view class="label">日期：                                                                                                            
+                            </view>{{item.created_time}}                                                                                              
+                        </view>
+                    </view>
+                </view>
+                <view class="delete">
+                    <image src="../../../imgs/shanchu.png" data-index="{{index}}" onTap="delete"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="null" a:else>
+      <image src="../../../imgs/kong.png"/>
+      <view>一个包裹都没有                                      
+      </view>
+    </view>
+    <view class="buts">
+        <button type="warn" data-type="1" onTap="ming">扫描包裹                                        
+        </button>
+        <button type="warn" data-type="2" onTap="ming" a:if="{{type == '2'}}">扫描供应商                                        
+        </button>
+        <button type="primary" onTap="ok">取货                                       
+        </button>
+    </view>
+    <view class="model" a:if="{{isModel}}">
+        <view class="content">
+            <view class="title">上传送达凭证            
+            </view>
+            <view class="uploadImg" onTap="uploadImg" a:if="{{imgSrc == ''}}">
+                <view class="imgContent">
+                    <image src="../../../imgs/upload.png"/>
+                    <view class="subname">请上传到达凭证                          
+                    </view>
+                </view>
+            </view>
+            <view class="cardImg" a:else>
+                <image class="img" src="{{imgSrc}}"/>
+                <view class="closeImg" onTap="deleteImg">
+                    <image src="../../../imgs/guanbi.png"/>
+                </view>
+            </view>
+            <button type="primary" onTap="claim">确认取货               
+            </button>
+            <view class="reset" onTap="qu">取消                
+            </view>
+        </view>
+    </view>
+</view>

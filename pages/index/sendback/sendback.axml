@@ -1,0 +1,12 @@
+<view class="send">
+    <view class="skuBox">
+        <view class="label">SKU：</view>
+        <view class="sku">{{sku}}</view>
+    </view>
+    <view class="cause">
+        <view class="title">退错原因</view>
+        <textarea class="textarea" maxlength="-1" placeholder="请输入退错原因" onInput="inputKey"/>
+    </view>
+    <button type="primary" onTap="submit">提交
+  </button>
+</view>

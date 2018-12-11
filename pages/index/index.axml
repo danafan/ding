@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="username">登陆账户：{{username}}       
+  </view>
+  <view class="items">
+    <view class="item" data-type="1-1" onTap="go">
+      <image src="../../imgs/dabao.png"/>
+      <view>打包                        
+      </view>
+    </view>
+    <view class="item" data-type="1-2" onTap="go">
+      <image src="../../imgs/entrucking.png"/>
+      <view>装车                         
+      </view>
+    </view>
+    <view class="item" data-type="1-3" onTap="go">
+      <image src="../../imgs/downcar.png"/>
+      <view>下车                  
+      </view>
+    </view>
+    <view class="item" data-type="1-4" onTap="go">
+      <image src="../../imgs/daoda.png"/>
+      <view>到达                  
+      </view>
+    </view>
+  </view>
+  <view class="itemss">
+    <view class="item" data-type="2-1" onTap="go">
+      <image src="../../imgs/tuihui.png"/>
+      <view>商品退回                         
+      </view>
+    </view>
+    <view class="item" data-type="2-2" onTap="go">
+      <image src="../../imgs/saoma.png"/>
+      <view>扫码获取                  
+      </view>
+    </view>
+    <view class="item" data-type="2-3" onTap="go">
+      <image src="../../imgs/jilu.png"/>
+      <view>我的记录                          
+      </view>
+    </view>
+  </view>
+  <view class="itemss">
+    <view class="item" data-type="3-1" onTap="go">
+      <image src="../../imgs/kuaidi.png"/>
+      <view>快递取货                        
+      </view>
+    </view>
+    <view class="item" data-type="3-2" onTap="go">
+      <image src="../../imgs/shangjia.png"/>
+      <view>商家取货                        
+      </view>
+    </view>
+  </view>
+</view>

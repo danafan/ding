@@ -1,0 +1,218 @@
+.claimBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.packageList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+}
+
+.packageItem {
+    width: 100%;
+    box-shadow: 0 0 2px 2px #f4f4f4;
+    padding: 16rpx;
+    border: 1px solid #f4f4f4;
+    margin: 20rpx auto;
+}
+
+.packageItem .packageCode {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.packageItem .xia {
+    display: flex;
+}
+
+.packageInfo {
+    flex: 1;
+    height: 120rpx;
+    display: flex;
+}
+
+.infoLeft, .infoRight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 26rpx;
+}
+
+.Item {
+    display: flex;
+}
+
+.label {
+    font-size: 28rpx;
+    font-weight: bold;
+    width: 120rpx;
+}
+
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80rpx;
+}
+
+.delete image {
+    width: 46rpx;
+    height: 50rpx;
+}
+
+.buts {
+    max-height: 300rpx;
+    padding: 0 20rpx 20rpx 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buts button {
+    margin-top: 20rpx;
+    width: 100%;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.model {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    border-radius: 12rpx;
+    background: #fff;
+    width: 600rpx;
+}
+
+.content .title {
+    width: 100%;
+    text-align: center;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.uploadImg {
+    margin: 0 auto;
+    background: #f4f4f4;
+    width: 560rpx;
+    height: 460rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgContent image {
+    margin-bottom: 20rpx;
+    width: 80rpx;
+    height: 70rpx;
+}
+
+.imgContent .subname {
+    font-size: 26rpx;
+}
+
+.cardImg {
+    position: relative;
+    margin: 0 auto;
+    width: 560rpx;
+    height: 460rpx;
+}
+
+.cardImg .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cardImg .closeImg {
+    background: rgba(0, 0, 0, .66);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImg .closeImg image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.content button {
+    margin: 20rpx auto;
+    width: 560rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.reset {
+    margin: 0 auto 20rpx;
+    border-radius: 10rpx;
+    background: #999;
+    width: 560rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+.null{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #999;
+  justify-content: center;
+  align-items: center;
+}
+.null image{
+  margin-bottom: 30rpx;
+  width: 130rpx;
+  height: 130rpx;
+}

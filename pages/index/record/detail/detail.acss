@@ -1,0 +1,78 @@
+.detail{
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.title{
+  border-bottom: 1px solid #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.left,.right{
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.item{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.look{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #03abff;
+}
+.express{
+  padding: 30rpx 40rpx;
+}
+.status{
+  position: relative;
+  margin-top: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.status image{
+  margin-right: 36rpx;
+  width: 16rpx;
+  height: 16rpx;
+}
+.status .content{
+  height: 100rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.content .top{
+  font-weight: bold;
+}
+.status .lookImg{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0,-50%);
+  font-size: 26rpx;
+  color: #03abff;
+}
+.cate{
+  background: rgba(0, 0, 0, .6);
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.cate image{
+  width: 600rpx;
+  height: 480rpx;
+}

@@ -1,0 +1,49 @@
+.send {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.skuBox {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.label {
+    width: 96rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.sku {
+    flex: 1;
+    border-bottom: 1px solid #f4f4f4;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #999;
+}
+.cause .title{
+    font-size: 30rpx;
+    font-weight: bold;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.cause .textarea{
+    border: 1px solid #999;
+    height: 200rpx;
+    font-size: 28rpx;
+}
+button{
+  margin: 100rpx auto 0;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
