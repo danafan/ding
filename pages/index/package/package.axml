@@ -27,9 +27,7 @@
     <view class="reset" onTap="reset">重置                                              
     </view>
   </view>
-  <view class="demo-item">
-  </view>
-  <!-- 提示弹框 -->
+  <!--提示弹框 -->
   <view class="toast" a:if="{{toast}}">
     <view class="box">
       <view class="toastCon">        请用PDA扫描                        

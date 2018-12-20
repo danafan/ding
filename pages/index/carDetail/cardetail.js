@@ -16,7 +16,7 @@ Page({
   //根据车辆id获取车辆信息
   getCarinfo() {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/car/getcarinfo',
+      url: getApp().globalData.baseurl + 'car/getcarinfo',
       method: 'GET',
       data: {
         carId: this.data.code,

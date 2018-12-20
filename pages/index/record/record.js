@@ -1,19 +1,27 @@
 Page({
   data: {
     recordList: [],                        //记录列表
-    page: 1,                                //当前页码
-    title: 'abc',
-    src: 'http://music.163.com/song/media/outer/url?id=317151.mp3',
-    coverImgUrl: 'https://s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188',
+    page: 1,                               //当前页码
+    title: '',                            //显示标题
+    url:''
   },
-  onLoad() {
+  onLoad(e) {
+    this.setData({
+      title: e.type == '1'?"我的记录":"异常包裹",
+      url: e.type == '1'?"my/my_operate_record":"my/my_timeout_record"
+    });
     //获取我的所有记录
-    this.getRecord();
+    this.getRecord(this.data.url);
+  },
+  onShow() {
+    dd.setNavigationBar({
+      title: this.data.title
+    });
   },
   //获取我的所有记录
-  getRecord() {
+  getRecord(url) {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/my/my_operate_record',
+      url: getApp().globalData.baseurl + url,
       method: 'GET',
       data: {
         page: this.data.page
@@ -42,7 +50,7 @@ Page({
       page: this.data.page + 1
     });
     //获取我的所有记录
-    this.getRecord();
+    this.getRecord(this.data.url);
   },
   //点击查看详情
   detail(e) {

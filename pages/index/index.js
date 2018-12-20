@@ -21,7 +21,7 @@ Page({
   //获取用户信息
   getUserinfo(authCode) {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/ding/dinglogin',
+      url: getApp().globalData.baseurl + 'ding/dinglogin',
       method: 'GET',
       data: {
         authCode: authCode
@@ -79,7 +79,15 @@ Page({
         break;
       case "2-3":
         //我的记录
-        dd.navigateTo({ url: '/pages/index/record/record' });
+        dd.navigateTo({ url: '/pages/index/record/record?type=' + 1 });
+        break;
+      case "2-4":
+        //问题包裹
+        dd.navigateTo({ url: '/pages/index/record/record?type=' + 2 });
+        break;
+      case "2-5":
+        //包裹作废
+        this.scan("2-5");
         break;
       case "3-1":
         //快递取货
@@ -170,6 +178,18 @@ Page({
               } else {
                 dd.navigateTo({ url: '/pages/index/carDetail/cardetail' });
               }
+            }
+            break;
+          case "2-5":
+            //包裹作废
+            if (isGoods == true || codeObj.type != "1") {
+              dd.showToast({
+                type: 'none',
+                content: "请扫描包裹二维码",
+                duration: 2000
+              });
+            } else {
+              dd.navigateTo({ url: '/pages/index/void/void' });
             }
             break;
           case "3-1":

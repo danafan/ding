@@ -14,7 +14,7 @@ Page({
     //获取包裹内商品列表
     getGoods() {
         dd.httpRequest({
-            url: 'http://erpcs.ppg8090.com/api/package/get_package_info',
+            url: getApp().globalData.baseurl + 'package/get_package_info',
             method: 'GET',
             data: {
                 package_id: this.data.packageId,

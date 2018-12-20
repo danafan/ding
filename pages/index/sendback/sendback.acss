@@ -17,7 +17,7 @@
 }
 
 .label {
-    width: 96rpx;
+    width: 130rpx;
     font-size: 30rpx;
     font-weight: bold;
 }

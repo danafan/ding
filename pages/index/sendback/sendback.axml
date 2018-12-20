@@ -1,6 +1,6 @@
 <view class="send">
     <view class="skuBox">
-        <view class="label">SKU：</view>
+        <view class="label">唯一码：</view>
         <view class="sku">{{sku}}</view>
     </view>
     <view class="cause">

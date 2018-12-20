@@ -1,0 +1,11 @@
+<view>
+  <view class="list" a:if="{{printer.length > 0}}">
+    <view class="item" a:for={{printer}} data-item={{item}} onTap="selItem">{{item}}
+    </view>
+  </view>
+  <view class="null" a:else>
+    <image src="../../../imgs/kong.png"/>
+    <view>当前没有打印机在线                                         
+    </view>
+  </view>
+</view>

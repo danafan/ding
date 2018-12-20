@@ -7,7 +7,7 @@ Page({
     isVerify: false,             //默认没有验证供应商
   },
   onLoad() {
-    //获取扫描的车辆id
+    //获取扫描的包裹id
     this.setData({
       packageId: getApp().globalData.codeObj.id
     })
@@ -17,7 +17,7 @@ Page({
   //获取包裹信息
   getPackage() {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/arrive/getpackageinfo',
+      url: getApp().globalData.baseurl + 'arrive/getpackageinfo',
       method: 'GET',
       data: {
         packageId: this.data.packageId,
@@ -96,7 +96,7 @@ Page({
   //验证该包裹是否与供应商一致
   provider(id) {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/arrive/validategys',
+      url: getApp().globalData.baseurl + 'arrive/validategys',
       method: 'GET',
       data: {
         packageId: this.data.packageId,
@@ -152,7 +152,7 @@ Page({
               content: '正在提交，请稍后...'
             });
             dd.uploadFile({
-              url: 'http://erpcs.ppg8090.com/api/arrive/uploadimg',
+              url: getApp().globalData.baseurl + 'arrive/uploadimg',
               fileType: 'image',
               fileName: 'img',
               filePath: this.data.imgSrc,
@@ -185,7 +185,7 @@ Page({
   //提交确认到达
   arrive(url) {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/arrive/confirmarrive',
+      url: getApp().globalData.baseurl + 'arrive/confirmarrive',
       method: 'GET',
       data: {
         packageId: this.data.packageId,

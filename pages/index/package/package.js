@@ -28,7 +28,7 @@ Page({
   //判断是否有未完成的包裹
   auto() {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/package/unfinishedpackage',
+      url: getApp().globalData.baseurl + 'package/unfinishedpackage',
       method: 'GET',
       dataType: 'json',
       success: (res) => {
@@ -57,6 +57,14 @@ Page({
   },
   //回车时触发
   searchBtn() {
+    if (this.data.code == "") {
+      dd.showToast({
+        type: 'none',
+        content: "请扫描商品唯一码",
+        duration: 2000
+      });
+      return;
+    }
     var obj = {
       uniqNum: this.data.code,
       type: 1
@@ -65,7 +73,7 @@ Page({
       obj.package_id = this.data.package
     }
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/package/pack',
+      url: getApp().globalData.baseurl + 'package/pack',
       method: 'GET',
       data: obj,
       dataType: 'json',
@@ -86,7 +94,7 @@ Page({
           dd.vibrate({
             success: () => {
               dd.alert({
-                title: '提示',  
+                title: '提示',
                 content: data.msg,
                 buttonText: '我知道了'
               });
@@ -114,7 +122,7 @@ Page({
   showBall() {
     if (this.data.goodsList.length > 0) {
       dd.httpRequest({
-        url: 'http://erpcs.ppg8090.com/api/package/packageinfo',
+        url: getApp().globalData.baseurl + 'package/packageinfo',
         method: 'GET',
         data: {
           packageId: this.data.package
@@ -146,7 +154,6 @@ Page({
         duration: 2000
       });
     }
-
   },
   //关闭完成打包弹框
   closeBall() {
@@ -193,7 +200,16 @@ Page({
   },
   //确认打包
   ok() {
-    if (this.data.supplier == "") {
+    if (getApp().globalData.printer == "") {
+      dd.showToast({
+        type: 'none',
+        content: '请选择打印机',
+        duration: 2000,
+        success: () => {
+          dd.navigateTo({ url: '/pages/index/printer/printer' });
+        }
+      });
+    } else if (this.data.supplier == "") {
       dd.showToast({
         type: 'none',
         content: '请选择供应商',
@@ -204,13 +220,14 @@ Page({
         content: '正在打包...'
       });
       dd.httpRequest({
-        url: 'http://erpcs.ppg8090.com/api/package/confirmPackage',
+        url: getApp().globalData.baseurl + 'package/confirmPackage',
         method: 'GET',
         data: {
           packageId: this.data.package,
           supplier_id: this.data.id,
           time: this.data.packageObj.time,
-          operator: this.data.packageObj.operator
+          operator: this.data.packageObj.operator,
+          choose: getApp().globalData.printer
         },
         dataType: 'json',
         success: (res) => {
@@ -228,6 +245,15 @@ Page({
                 dd.navigateBack({
                   delta: 1
                 })
+              }
+            });
+          } else if (data.code == 100) {
+            dd.showToast({
+              type: 'none',
+              content: '当前打印机已掉线，请重新选择',
+              duration: 2000,
+              success: () => {
+                dd.navigateTo({ url: '/pages/index/printer/printer' });
               }
             });
           } else {
@@ -252,7 +278,7 @@ Page({
         success: (result) => {
           if (result.confirm == true) {
             dd.httpRequest({
-              url: 'http://erpcs.ppg8090.com/api/package/reset',
+              url: getApp().globalData.baseurl + 'package/reset',
               method: 'GET',
               data: {
                 package_id: this.data.package

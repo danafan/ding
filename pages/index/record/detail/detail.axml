@@ -28,6 +28,8 @@
       </view>
     </view>
   </view>
+  <button type="primary" onTap="ok">重新打印
+  </button>
   <view class="cate" a:if="{{showCate}}" onTap="close">
     <image src="{{packageObj.arrive_img}}"/>
   </view>

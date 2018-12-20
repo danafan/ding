@@ -130,5 +130,6 @@ require('../../pages/index/record/record');
 require('../../pages/index/record/detail/detail');
 require('../../pages/index/record/detail/goods/goods');
 require('../../pages/index/claimGoods/claimGoods');
+require('../../pages/index/printer/printer');
 }
 self.bootstrapApp ? self.bootstrapApp({ success }) : success();

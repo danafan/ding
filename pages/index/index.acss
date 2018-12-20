@@ -13,36 +13,15 @@
 .items{
   margin-top: 20rpx;
   background: #fff;
-  height: 200rpx;
   width:100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  padding-left: 40rpx;
-  padding-right: 40rpx;
+  padding-top: 20rpx;
 }
 .items .item{
-  width:120rpx;
-  height: 160rpx;
-  font-size: 28rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-.itemss{
-  margin-top: 20rpx;
-  background: #fff;
-  height: 200rpx;
-  width:100%;
-  display: flex;
-  align-items: center;
-  padding-left: 40rpx;
-  padding-right: 40rpx;
-}
-.itemss .item{
-  margin-right: 60rpx;
-  width:120rpx;
+  margin-bottom: 20rpx;
+  width:25%;
   height: 160rpx;
   font-size: 28rpx;
   display: flex;

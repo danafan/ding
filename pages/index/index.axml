@@ -23,10 +23,15 @@
       </view>
     </view>
   </view>
-  <view class="itemss">
+  <view class="items">
     <view class="item" data-type="2-1" onTap="go">
       <image src="../../imgs/tuihui.png"/>
       <view>商品退回                         
+      </view>
+    </view>
+    <view class="item" data-type="2-5" onTap="go">
+      <image src="../../imgs/void.png"/>
+      <view>包裹作废                         
       </view>
     </view>
     <view class="item" data-type="2-2" onTap="go">
@@ -39,8 +44,13 @@
       <view>我的记录                          
       </view>
     </view>
+    <view class="item" data-type="2-4" onTap="go">
+      <image src="../../imgs/warn.png"/>
+      <view>异常包裹                          
+      </view>
+    </view>
   </view>
-  <view class="itemss">
+  <view class="items">
     <view class="item" data-type="3-1" onTap="go">
       <image src="../../imgs/kuaidi.png"/>
       <view>快递取货                        

@@ -1,7 +1,8 @@
 <view>
   <scroll-view scroll-y="{{true}}" onScrollToLower="lower" class="record" a:if="{{recordList.length > 0}}">
     <view class="recordItem" a:for="{{recordList}}" data-id="{{item.package_id}}" onTap="detail">
-      <view class="title">{{item.operate_sn}}                               
+      <view class="title">{{item.package_status}}   
+        <span class="haha" a:if="{{item.warning_type == 1 || item.warning_type == 2}}">（{{item.warning}}）</span>                            
       </view>
       <view class="info">
         <view class="infoItem">件数：{{item.goods_num}}                                          

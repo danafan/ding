@@ -16,7 +16,7 @@ Page({
   //根据车辆id获取车辆信息
   getCarinfo() {
     dd.httpRequest({
-      url: 'http://erpcs.ppg8090.com/api/car/getcarinfo',
+      url: getApp().globalData.baseurl + 'car/getcarinfo',
       method: 'GET',
       data: {
         carId: this.data.code,
@@ -67,43 +67,52 @@ Page({
               duration: 2000
             });
           } else {
-            //传递包裹id和type添加包裹
-            dd.httpRequest({
-              url: 'http://erpcs.ppg8090.com/api/car/scanpackage',
-              method: 'GET',
-              data: {
-                packageId: codeObj.id,
-                carId: this.data.code,
-                type: codeObj.type
-              },
-              dataType: 'json',
-              success: (res) => {
-                var data = res.data;
-                if (data.code == 1) {
-                  dd.showToast({
-                    type: 'none',
-                    content: "扫描成功",
-                    duration: 2000
-                  });
-                  this.setData({
-                    code: data.data.id,              //修改当前车辆id
-                    carObj: data.data,               //车辆信息对象
-                    packageList: data.packageInfo    //当前车辆的包裹列表
-                  });
-                } else {
-                  dd.showToast({
-                    type: 'none',
-                    content: data.msg,
-                    duration: 2000
-                  });
-                }
-              }
-            });
+            //添加包裹
+            this.addPackage(codeObj);
           }
         } else {
           dd.showToast({
             type: 'none',
             content: "请扫描包裹码",
+            duration: 2000
+          });
+        }
+      }
+    });
+  },
+  //添加包裹
+  addPackage(codeObj) {
+    //传递包裹id和type添加包裹
+    dd.httpRequest({
+      url: getApp().globalData.baseurl + 'car/scanpackage',
+      method: 'GET',
+      data: {
+        packageId: codeObj.id,
+        carId: this.data.code,
+        type: codeObj.type
+      },
+      dataType: 'json',
+      success: (res) => {
+        var data = res.data;
+        if (data.code == 1) {
+          this.setData({
+            code: data.data.id,              //修改当前车辆id
+            carObj: data.data,               //车辆信息对象
+            packageList: data.packageInfo    //当前车辆的包裹列表
+          });
+          dd.showToast({
+            type: 'none',
+            content: "扫描成功",
+            duration: 1000
+          });
+          setTimeout(() => {
+            //扫描包裹二维码增加包裹
+            this.scan();
+          }, 1000);
+        } else {
+          dd.showToast({
+            type: 'none',
+            content: data.msg,
             duration: 2000
           });
         }
@@ -120,7 +129,7 @@ Page({
       success: (result) => {
         if (result.confirm == true) {
           dd.httpRequest({
-            url: 'http://erpcs.ppg8090.com/api/car/delpackage',
+            url: getApp().globalData.baseurl + 'car/delpackage',
             method: 'GET',
             data: {
               packageId: e.currentTarget.dataset.id
@@ -213,7 +222,7 @@ Page({
               packageids.push(item.id);
             })
             dd.httpRequest({
-              url: 'http://erpcs.ppg8090.com/api/car/reset',
+              url: getApp().globalData.baseurl + 'car/reset',
               method: 'POST',
               data: {
                 packageIds: packageids.join("-")

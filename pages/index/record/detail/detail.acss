@@ -76,3 +76,10 @@
   width: 600rpx;
   height: 480rpx;
 }
+button{
+  margin: 30rpx auto;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}

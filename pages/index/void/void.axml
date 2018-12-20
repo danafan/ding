@@ -1,0 +1,30 @@
+<view class="ha">
+  <view class="packageInfo">
+    <view class="item">
+      <view class="label">包裹号码：</view>
+      <view class="value">{{packageId}}</view>
+    </view>
+    <view class="item">
+      <view class="label">供应商：</view>
+      <view class="value">{{packageObj.supplier_name}}</view>
+    </view>
+    <view class="item">
+      <view class="label">打包人：</view>
+      <view class="value">{{packageObj.operator}}</view>
+    </view>
+    <view class="item">
+      <view class="label">件数：</view>
+      <view class="value">{{packageObj.goods_num}}</view>
+    </view>
+    <view class="item">
+      <view class="label">日期：</view>
+      <view class="value">{{packageObj.pack_time}}</view>
+    </view>
+  </view>
+  <view class="cause">
+        <view class="title">作废说明</view>
+        <textarea class="textarea" maxlength="-1" placeholder="请输入作废说明" onInput="inputKey"/>
+    </view>
+    <button type="primary" onTap="submit">提交
+  </button>
+</view>
