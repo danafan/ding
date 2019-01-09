@@ -64,79 +64,12 @@ Page({
       imgSrc: ""
     });
   },
-  //点击验证供应商
-  verify() {
-    //弹出扫描二维码的框
-    dd.scan({
-      type: 'qr',
-      success: (res) => {
-        //扫描成功所得到的数据
-        if (res.code.indexOf("type") > -1) {
-          var codeObj = JSON.parse(res.code)
-          if (codeObj.type != "3") {    //扫描的不是供应商
-            dd.showToast({
-              type: 'none',
-              content: "请扫描供应商码",
-              duration: 2000
-            });
-          } else {
-            //验证该包裹是否与供应商一致
-            this.provider(codeObj.id);
-          }
-        } else {
-          dd.showToast({
-            type: 'none',
-            content: "请扫描供应商码",
-            duration: 2000
-          });
-        }
-      }
-    });
-  },
-  //验证该包裹是否与供应商一致
-  provider(id) {
-    dd.httpRequest({
-      url: getApp().globalData.baseurl + 'arrive/validategys',
-      method: 'GET',
-      data: {
-        packageId: this.data.packageId,
-        supplier_id: id
-      },
-      dataType: 'json',
-      success: (res) => {
-        var data = res.data;
-        if (data.code == 1) {
-          //修改验证供应商状态
-          this.setData({
-            isVerify: true
-          });
-          dd.showToast({
-            type: 'none',
-            content: "验证通过",
-            duration: 2000
-          });
-        } else {
-          dd.showToast({
-            type: 'none',
-            content: data.msg,
-            duration: 2000
-          });
-        }
-      }
-    });
-  },
   //点击确认到达（上传图片）
   ok() {
     if (this.data.imgSrc == "") {
       dd.showToast({
         type: 'none',
         content: '请上传图片凭证',
-        duration: 2000
-      });
-    } else if (this.data.isVerify == false) {
-      dd.showToast({
-        type: 'none',
-        content: '请先验证供应商',
         duration: 2000
       });
     } else {

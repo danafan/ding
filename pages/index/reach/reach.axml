@@ -30,8 +30,6 @@
       <image src="../../../imgs/guanbi.png"/>
     </view>
   </view>
-  <button type="warn" onTap="verify" a:if="{{isVerify == false}}">验证供应商
-  </button>
   <button type="primary" onTap="ok">确认到达
   </button>
 </view>
