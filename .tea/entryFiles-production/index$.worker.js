@@ -24,8 +24,8 @@
   }
 
   // eslint-disable-next-line
-  var OriginFunction = Function;
-  var OriginFetch = self.fetch;
+  var OriginalFunction = Function;
+  var OriginalFetch = self.fetch;
 
   var callInternalAPI = function callInternalAPI(api, param) {
     var actionData = {
@@ -38,8 +38,8 @@
     var apiQueryString = encodeURIComponent(JSON.stringify(actionData));
     var url = 'https://alipay.kylinBridge/?data=' + apiQueryString;
 
-    if (OriginFetch) {
-      OriginFetch(url, {
+    if (OriginalFetch) {
+      OriginalFetch(url, {
         mode: 'no-cors'
       }).then(function () {}).catch(function () {});
     } else {
@@ -78,7 +78,7 @@
             });
           };
           try {
-            new OriginFunction('requestId', 'sendBack', '\n              const res = ' + data.script + ';\n              console.log(res);\n            ')(requestId, sendBack);
+            new OriginalFunction('requestId', 'sendBack', '\n              const res = ' + data.script + ';\n              console.log(res);\n            ')(requestId, sendBack);
           } catch (error) {
             console.error(error.name + ':' + error.message);
           }
@@ -105,8 +105,11 @@
   }, 10);
 
   ['log', 'info', 'error', 'debug', 'warn'].forEach(function (type) {
-    var originType = 'o' + type;
-    console[originType] = console[type];
+    var originalType = 'o' + type;
+    if (console[originalType]) {
+      return;
+    }
+    console[originalType] = console[type];
     console[type] = function () {
       var _console;
 
@@ -114,7 +117,7 @@
         args[_key] = arguments[_key];
       }
 
-      (_console = console)[originType].apply(_console, args);
+      (_console = console)[originalType].apply(_console, args);
       var content = void 0;
       try {
         content = CircularJSON.stringify(args.map(function (i) {
@@ -142,6 +145,7 @@ require('../../pages/index/getoff/getoff');
 require('../../pages/index/reach/reach');
 require('../../pages/index/sendback/sendback');
 require('../../pages/index/void/void');
+require('../../pages/index/packDetail/packDetail');
 require('../../pages/index/packageDetail/getdetail');
 require('../../pages/index/carDetail/cardetail');
 require('../../pages/index/record/record');

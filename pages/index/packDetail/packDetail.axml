@@ -1,0 +1,35 @@
+<view class="packageBox">
+  <view class="labelList">
+    <view class="labelItem">
+      <view class="label">供应商：
+      </view>
+      <view class="value">{{shopObj.supplier_name}}
+      </view>
+    </view>
+    <view class="labelItem">
+      <view class="label">商品件数：
+      </view>
+      <view class="value">{{shopObj.goods_num}}
+      </view>
+    </view>
+    <view class="labelItem">
+      <view class="label">打包日期：
+      </view>
+      <view class="value">{{shopObj.pack_time}}
+      </view>
+    </view>
+    <view class="labelItem">
+      <view class="label">打包人：
+      </view>
+      <view class="value">{{shopObj.operator}}
+      </view>
+    </view>
+    <view class="labelItem">
+      <view class="label">包裹二维码
+      </view>
+    </view>
+  </view>
+  <view class="er">
+    <image class="qrcode" src={{qrcode}} mode="aspectFit"/>
+  </view>
+</view>

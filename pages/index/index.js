@@ -167,11 +167,8 @@ Page({
           case "2-2":
             //扫码获取
             if (isGoods == true || (codeObj.type != "1" && codeObj.type != "2")) {
-              dd.showToast({
-                type: 'none',
-                content: "请扫描包裹或车辆二维码",
-                duration: 2000
-              });
+              //扫的是商品码
+              dd.navigateTo({ url: '/pages/index/packDetail/packDetail' });
             } else {
               if (codeObj.type == "1") {
                 dd.navigateTo({ url: '/pages/index/packageDetail/getdetail' });

@@ -7,6 +7,7 @@ require('../../pages/index/getoff/getoff');
 require('../../pages/index/reach/reach');
 require('../../pages/index/sendback/sendback');
 require('../../pages/index/void/void');
+require('../../pages/index/packDetail/packDetail');
 require('../../pages/index/packageDetail/getdetail');
 require('../../pages/index/carDetail/cardetail');
 require('../../pages/index/record/record');
