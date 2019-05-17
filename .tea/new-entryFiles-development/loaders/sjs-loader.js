@@ -1,5 +1,5 @@
 module.exports = {
-  translate: function(load) {
+  translate(load) {
     return load.source;
-  }
-}
+  },
+};

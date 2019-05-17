@@ -37,10 +37,6 @@ Page({
           this.setData({
             packageList: arr
           });
-           setTimeout(() => {
-            //扫描包裹二维码增加包裹
-            this.scan(1);
-          }, 1000);
         } else {
           dd.showToast({
             type: 'none',
@@ -50,61 +46,9 @@ Page({
         }
       }
     });
-  },
-  //验证供应商
-  verifyStall(obj) {
-    dd.httpRequest({
-      url: getApp().globalData.baseurl + 'supplier/scan_supplier',
-      method: 'GET',
-      data: obj,
-      dataType: 'json',
-      success: (res) => {
-        var data = res.data;
-        if (data.code == 1) {
-          dd.showToast({
-            type: 'none',
-            content: "供应商验证通过",
-            duration: 2000
-          });
-          this.setData({
-            verify: true
-          });
-        } else {
-          dd.showToast({
-            type: 'none',
-            content: data.msg,
-            duration: 2000
-          });
-        }
-      }
-    });
-  },
-  //扫描包裹或供应商
-  ming(e) {
-    let type = e.currentTarget.dataset.type;        //（1:包裹；2:供应商）
-    if (type == 1) {    //扫描包裹
-      this.scan(1);
-    } else {            //扫描供应商
-      if (this.data.packageList.length == 0) {
-        dd.showToast({
-          type: 'none',
-          content: "一个包裹都没有",
-          duration: 2000
-        })
-      } else if (this.data.verify == true) {
-        dd.showToast({
-          type: 'none',
-          content: "您已验证过供应商",
-          duration: 2000
-        });
-      } else {
-        //扫描
-        this.scan(2);
-      }
-    }
   },
   //扫描
-  scan(type) {
+  scan() {
     //弹出扫描二维码的框
     dd.scan({
       type: 'qr',
@@ -112,68 +56,41 @@ Page({
         //扫描成功所得到的数据
         if (res.code.indexOf("type") > -1) {
           var codeObj = JSON.parse(res.code)
-          if (type == 1) {                  //如果当前应该扫包裹
-            if (codeObj.type != "1") {    //扫描的不是包裹
-              dd.showToast({
-                type: 'none',
-                content: "请扫描包裹码",
-                duration: 2000
-              });
-            } else {                       //扫描的是包裹
-              //获取包裹信息（判断是否是同一个供应商）
-              let obj = {
-                type: "1"
-              }
-              if (this.data.packageList.length > 0) {
-                obj.package_id1 = this.data.packageList[0].id;
-                obj.package_id2 = codeObj.id;
-              } else {
-                obj.package_id1 = codeObj.id;
-              }
-              //判断是否重复扫描
-              if (this.judge(codeObj.id) == false) {
-                dd.showToast({
-                  type: 'none',
-                  content: "请勿重复扫描",
-                  duration: 2000
-                });
-              } else {
-                //获取包裹信息（判断是否是同一个供应商,相同就追加列表）
-                this.getPackage(obj)
-              }
-            }
-          } else {                          //当前应该扫供应商
-            if (codeObj.type != "3") {    //扫描的不是供应商
-              dd.showToast({
-                type: 'none',
-                content: "请扫描供应商",
-                duration: 2000
-              });
-            } else {                       //扫描的是供应商
-              //获取包裹信息（判断是否是同一个供应商）
-              let obj = {
-                package_id: this.data.packageList[0].id,
-                supplier_id: codeObj.id,
-                type: "3"
-              }
-              //验证供应商
-              this.verifyStall(obj);
-            }
-          }
-        } else {
-          if (type == 1) {
+          if (codeObj.type != "1") {    //扫描的不是包裹
             dd.showToast({
               type: 'none',
               content: "请扫描包裹码",
               duration: 2000
             });
-          } else {
-            dd.showToast({
-              type: 'none',
-              content: "请扫描供应商码",
-              duration: 2000
-            });
+          } else {                       //扫描的是包裹
+            //获取包裹信息（判断是否是同一个供应商）
+            let obj = {
+              type: "1"
+            }
+            if (this.data.packageList.length > 0) {
+              obj.package_id1 = this.data.packageList[0].id;
+              obj.package_id2 = codeObj.id;
+            } else {
+              obj.package_id1 = codeObj.id;
+            }
+            //判断是否重复扫描
+            if (this.judge(codeObj.id) == false) {
+              dd.showToast({
+                type: 'none',
+                content: "请勿重复扫描",
+                duration: 2000
+              });
+            } else {
+              //获取包裹信息（判断是否是同一个供应商,相同就追加列表）
+              this.getPackage(obj)
+            }
           }
+        } else {
+          dd.showToast({
+            type: 'none',
+            content: "请扫描包裹码",
+            duration: 2000
+          });
         }
       }
     });
@@ -222,12 +139,6 @@ Page({
         content: "一个包裹都没有",
         duration: 2000
       })
-    } else if (this.data.type == '2' && this.data.verify == false) {
-      dd.showToast({
-        type: 'none',
-        content: "请扫描供应商",
-        duration: 2000
-      });
     } else {
       this.setData({
         isModel: true

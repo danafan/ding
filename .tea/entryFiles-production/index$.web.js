@@ -11,6 +11,7 @@ require('../../pages/index/packDetail/packDetail');
 require('../../pages/index/packageDetail/getdetail');
 require('../../pages/index/carDetail/cardetail');
 require('../../pages/index/record/record');
+require('../../pages/index/sign/sign');
 require('../../pages/index/record/detail/detail');
 require('../../pages/index/record/detail/goods/goods');
 require('../../pages/index/claimGoods/claimGoods');

@@ -1,6 +1,46 @@
-.record{
+.searchBox{
+  padding-left: 20rpx;
+  background: #fff;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.searchInput{
+  width: 70%;
+  z-index: 9;
+  font-size: 26rpx;
+}
+.searchTxt{
+  color: #03abff;
+  font-size: 28rpx;
+  z-index: 9;
+}
+.shopList{
+  background: #fff;
+  position: absolute;
+  top: 80rpx;
+  width:60%;
+  max-height: 300rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  overflow-y: scroll;
+  z-index: 9;
+}
+.shopItem{
+  border-bottom: 1px solid #f4f4f4;
+  width: 100%;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  color: #ccc;
+}
+.record{
+  position: absolute;
+  top: 80rpx;
   left: 0;
   width: 100%;
   height: 100%;

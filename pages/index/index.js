@@ -1,4 +1,3 @@
-
 Page({
   data: {
     username: "",     //用户名
@@ -88,6 +87,10 @@ Page({
       case "2-5":
         //包裹作废
         this.scan("2-5");
+        break;
+      case "2-6":
+        //标记异常
+        dd.navigateTo({ url: '/pages/index/sign/sign' });
         break;
       case "3-1":
         //快递取货

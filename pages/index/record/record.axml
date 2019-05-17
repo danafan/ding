@@ -1,4 +1,11 @@
 <view>
+  <view class="searchBox">
+    <input class="searchInput" onInput="bindKeyInput" onFocus="onfocus" value="{{search}}" placeholder="输入搜索内容"/>
+    <view class="searchTxt" onTap="search">搜索</view>
+    <view class="shopList" a:if="{{showShopList}}">
+      <view class="shopItem" a:for="{{shopList}}" data-name="{{item.supplier_name}}" data-id="{{item.supplier_id}}" onTap="selShop">{{item.supplier_name}}</view>
+    </view>
+  </view>
   <scroll-view scroll-y="{{true}}" onScrollToLower="lower" class="record" a:if="{{recordList.length > 0}}">
     <view class="recordItem" a:for="{{recordList}}" data-id="{{item.package_id}}" onTap="detail">
       <view class="title">{{item.package_status}}   

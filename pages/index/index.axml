@@ -49,6 +49,11 @@
       <view>异常包裹                          
       </view>
     </view>
+    <view class="item" data-type="2-6" onTap="go">
+      <image src="../../imgs/biaoji.png"/>
+      <view>标记异常                          
+      </view>
+    </view>
   </view>
   <view class="items">
     <view class="item" data-type="3-1" onTap="go">

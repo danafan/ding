@@ -105,10 +105,6 @@ Page({
             content: "扫描成功",
             duration: 1000
           });
-          setTimeout(() => {
-            //扫描包裹二维码增加包裹
-            this.scan();
-          }, 1000);
         } else {
           dd.showToast({
             type: 'none',

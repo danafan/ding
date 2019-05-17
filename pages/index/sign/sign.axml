@@ -1,0 +1,67 @@
+<view class="box">
+  <scroll-view scroll-y="{{true}}" onScrollToLower="lower" a:if="{{signList.length > 0}}">
+    <view class="signItem" a:for="{{signList}}">
+      <view class="itemTop">
+        <view class="lie">
+          <view class="content">包裹号码：{{item.package_id}}          
+          </view>
+          <view class="content">类型：{{item.get_type}}          
+          </view>
+        </view>
+        <view class="lie">
+          <view class="content">供应商：{{item.supplier_name}}          
+          </view>
+          <view class="content">包裹状态：{{item.real_package_status}}          
+          </view>
+        </view>
+      </view>
+      <view class="content">异常状态：        
+        <text>{{item.status}}        
+        </text>
+      </view>
+      <view class="content">时间：{{item.add_time}}      
+      </view>
+      <view class="content">件数：{{item.goods_num}}      
+      </view>
+      <view class="buts" a:if="{{item.button_status == 0}}">
+        <view class="but" data-id="{{item.package_id}}" data-type="1" onTap="inquiry">作废        
+        </view>
+        <view class="but" data-status="1" data-item="{{item}}" onTap="previous">移交下一步        
+        </view>
+      </view>
+      <view class="buts" a:if="{{item.button_status == 1 || item.button_status == 2}}">
+        <view class="but" data-status="-1" data-item="{{item}}" onTap="previous">返回上一步        
+        </view>
+        <view class="but" data-status="1" data-item="{{item}}" onTap="previous">移交下一步        
+        </view>
+      </view>
+      <view class="buts" a:if="{{item.button_status == 3}}">
+        <view class="but" data-status="-1" data-item="{{item}}" onTap="previous">返回上一步        
+        </view>
+        <view class="but" data-id="{{item.package_id}}" data-type="0" onTap="inquiry">已送达        
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="null" a:else>
+    <image src="../../../imgs/kong.png"/>
+    <view>没有标记异常记录                                               
+    </view>
+  </view>
+  <view class="mobelBox" a:if="{{showModal}}">
+    <view class="searchBox">
+      <view class="searchTop">
+<input class="searchInput" onInput="bindKeyInput" value="{{search}}" placeholder="请选择联系人"/>
+      </view>
+      <view class="shopList">
+        <view class="shopItem" a:for="{{contactsList}}" data-id="{{item.id}}" data-name="{{item.name}}"  onTap="selContacts">{{item.name}}
+        </view>
+      </view>
+      <view class="butss">
+        <view class="ok" onTap="okSelcon">确认</view>
+        <view class="ok" onTap="qu">取消</view>
+      </view>
+      
+    </view>
+  </view>
+</view>

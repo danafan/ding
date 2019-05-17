@@ -11,6 +11,7 @@
     "pages/index/packageDetail/getdetail",
     "pages/index/carDetail/cardetail",
     "pages/index/record/record",
+    "pages/index/sign/sign",
     "pages/index/record/detail/detail",
     "pages/index/record/detail/goods/goods",
     "pages/index/claimGoods/claimGoods",

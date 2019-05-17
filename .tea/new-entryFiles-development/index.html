@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <script>
-      window.TINY_WORKER_MD5 = '1544947485974';
+      window.TINY_WORKER_MD5 = '1553479131070';
     </script>
     <style>
         html {
@@ -13,12 +13,11 @@
         }
     </style>
     <link rel="stylesheet" href="" />
-    <style>
-/*!
- *
- * ap/v1.12.0
- * Mon Nov 26 2018 17:21:28 GMT+0800 (CST)
- *
+    <style>/*!
+ * 
+ * ap/v1.13.5
+ * Mon Jan 21 2019 18:08:13 GMT+0800 (GMT+08:00)
+ * 
  */
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -61,6 +60,11 @@ section {
   display: block;
 }
 
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -99,6 +103,11 @@ hr {
   overflow: visible; /* 2 */
 }
 
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
 pre {
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
@@ -128,6 +137,10 @@ abbr[title] {
   text-decoration: underline dotted; /* 2 */
 }
 
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
 b,
 strong {
   font-weight: inherit;
@@ -142,6 +155,10 @@ strong {
   font-weight: bolder;
 }
 
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
 
 code,
 kbd,
@@ -174,6 +191,11 @@ mark {
 small {
   font-size: 80%;
 }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
 
 sub,
 sup {
@@ -267,6 +289,12 @@ select { /* 1 */
   text-transform: none;
 }
 
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
 button,
 html [type="button"], /* 1 */
 [type="reset"],
@@ -305,6 +333,12 @@ fieldset {
   padding: 0.35em 0.75em 0.625em;
 }
 
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
 
 legend {
   box-sizing: border-box; /* 1 */
@@ -372,6 +406,10 @@ textarea {
   -webkit-appearance: none;
 }
 
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
@@ -492,6 +530,32 @@ a {
   margin-top: 26px;
   font-size: 18px;
   color: #108ee9;
+}
+.a-component-permission {
+  background-color: #f5f5f5 !important;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+  -webkit-justify-content: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+          align-items: center !important;
+}
+.a-component-permission div {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAMAAADyQNAxAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAeUExURZmZmUdwTJmZmZmZmZycnJycnJqampubm5qampqamq7t2fMAAAAKdFJOU/4A644QKa1vSszQfyflAAABFUlEQVQ4y42UW6LDIAhEkZe6/w3f0SaRpPEWfmrICRQZoBKtiXcm7i6m0U/raMIEY/78iL1QKnjldcZQq44n0SfVkKjGLFrhaXeqxi9D9BopX5/dimHyRVViK29m/Ik2qLaDJtY+lBK1sjNE0EkJSdnbfEvFJr01ZTJQcpa7sYpgVPi6fnGX76MSF2rHlcDQv34cOxp5uh1MSLihkJKc7AdlYDqtCrXo2xEMc/llQ3ApKhcr/q/N7YMJNe50AebRIMMUudijRWTr7sGMoRjmgUO20UcNCsbFeh+D1krsY9CEndM1p85umlj6Ur4iNF7Oqa+cVged0H1uhv6bx77mcdSUmO3knkjunOT+Su7CSxHHXr35/wD5yQjIzCfxhgAAAABJRU5ErkJggg==");
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  background-size: 19px;
+  color: #D8D8D8;
+  overflow: hidden;
+}
+.a-audio {
+  min-height: 50px;
 }
 .a-audio-container {
   width: 100%;
@@ -847,7 +911,6 @@ a {
 }
 .a-input-wrap {
   position: relative;
-  z-index: 0;
   text-overflow: inherit;
   border: none;
   height: 100%;
@@ -882,7 +945,6 @@ a {
   white-space: inherit;
   text-overflow: inherit;
   -webkit-tap-highlight-color: transparent;
-  z-index: 2;
   left: 0;
   top: 0;
 }
@@ -892,7 +954,7 @@ a {
   top: 0;
   width: 100%;
   height: inherit;
-  white-space: pre;
+  white-space: nowrap;
   text-align: inherit;
   overflow: hidden;
   color: #ccc;
@@ -921,6 +983,18 @@ a {
   overflow: hidden;
 }
 .a-lottie[hidden] {
+  display: none;
+}
+.a-live-player {
+  width: 300px;
+  height: 225px;
+  display: inline-block;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+}
+.a-live-player[hidden] {
   display: none;
 }
 .a-lifestyle {
@@ -972,6 +1046,18 @@ a {
 }
 .a-lifestyle-btn.a-button-loading {
   width: 44px;
+}
+.a-live-pusher {
+  width: 300px;
+  height: 225px;
+  display: inline-block;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+}
+.a-live-pusher[hidden] {
+  display: none;
 }
 .a-map {
   width: 100vw;
@@ -1473,7 +1559,6 @@ a {
   width: 100%;
   height: 100%;
 }
-
 </style>
     <style>
         body {
@@ -1563,7 +1648,7 @@ a {
     <script src="/.tea/new-entryFiles-development/assets/system.src.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<script src="https://gw.alipayobjects.com/as/g/ant-tools/appx-assets/1.0.0/af-appx.ide.min.js" crossorigin="anonymous"></script>
+<script src="http://127.0.0.1:54644/1.13.5/af-appx.ide.min.js" crossorigin="anonymous"></script>
 <script src="./system.config.js" crossorigin="anonymous"></script>
 <div id="__react-content">
     <div class="a-cp-wrapper">

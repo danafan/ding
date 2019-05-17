@@ -20,63 +20,6 @@
 .label{
   width: 160rpx;
 }
-.uploadTitle{
-  width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 30rpx;
-  font-weight: bold;
-}
-.uploadImg{
-  margin: 40rpx auto;
-  background: #f4f4f4;
-  width:600rpx;
-  height: 480rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.imgContent{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.imgContent image{
-  margin-bottom: 20rpx;
-  width: 80rpx;
-  height: 70rpx;
-}
-.imgContent .subname{
-  font-size: 26rpx;
-}
-.cardImg{
-  position: relative;
-  margin: 40rpx auto;
-  width:600rpx;
-  height: 480rpx;
-}
-.cardImg .img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width:100%;
-  height: 100%;
-}
-.cardImg .closeImg{
-  background: rgba(0, 0, 0, .66);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60rpx;
-  height: 60rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cardImg .closeImg image{
-  width: 36rpx;
-  height: 36rpx;
-}
 button{
   margin: 30rpx auto;
   width: 80%;

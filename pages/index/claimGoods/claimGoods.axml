@@ -38,9 +38,8 @@
       </view>
     </view>
     <view class="buts">
-        <button type="warn" data-type="1" onTap="ming">扫描包裹                                        
-        </button>
-        <button type="warn" data-type="2" onTap="ming" a:if="{{type == '2'}}">扫描供应商                                        
+        <button type="warn" onTap="scan">扫描包裹                                        
+        </button>                                       
         </button>
         <button type="primary" onTap="ok">取货                                       
         </button>

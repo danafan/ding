@@ -15,21 +15,6 @@
     <view class="label">打包日期：      
     </view>    {{packageObj.pack_time}}    
   </view>
-  <view class="uploadTitle">上传凭证
-  </view>
-  <view class="uploadImg" onTap="uploadImg" a:if="{{imgSrc == ''}}">
-    <view class="imgContent">
-      <image src="../../../imgs/upload.png"/>
-      <view class="subname">请上传到达凭证
-      </view>
-    </view>
-  </view>
-  <view class="cardImg" a:else>
-    <image class="img" src="{{imgSrc}}"/>
-    <view class="closeImg" onTap="deleteImg">
-      <image src="../../../imgs/guanbi.png"/>
-    </view>
-  </view>
   <button type="primary" onTap="ok">确认到达
   </button>
 </view>
