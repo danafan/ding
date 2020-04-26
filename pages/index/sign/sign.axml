@@ -29,15 +29,15 @@
         <view class="but" data-status="1" data-item="{{item}}" onTap="previous">移交下一步        
         </view>
       </view>
-      <view class="buts" a:if="{{item.button_status == 1 || item.button_status == 2}}">
+      <!-- <view class="buts" a:if="{{item.button_status == 1 || item.button_status == 2}}">
         <view class="but" data-status="-1" data-item="{{item}}" onTap="previous">返回上一步        
         </view>
         <view class="but" data-status="1" data-item="{{item}}" onTap="previous">移交下一步        
         </view>
-      </view>
+      </view> -->
       <view class="buts" a:if="{{item.button_status == 3}}">
-        <view class="but" data-status="-1" data-item="{{item}}" onTap="previous">返回上一步        
-        </view>
+        <!-- <view class="but" data-status="-1" data-item="{{item}}" onTap="previous">返回上一步        
+        </view> -->
         <view class="but" data-id="{{item.package_id}}" data-type="0" onTap="inquiry">已送达        
         </view>
       </view>

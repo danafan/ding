@@ -13,6 +13,8 @@ Page({
     searchList: [],        //展示的供应商列表（包括模糊查询）
     supplier: "",          //供应商展示的内容
     id: "",                //选中的供应商id
+    type:1,                //1:第一次打包；0:商家不一致确认之后第二次打包
+    isOver:true,           //为true时可点击完成打包
   },
   onLoad() {
     //判断首页是否意外退出
@@ -65,6 +67,9 @@ Page({
       });
       return;
     }
+    this.setData({
+      isOver:false
+    })            //完成打包按钮不可点击
     var obj = {
       uniqNum: this.data.code,
       type: 1
@@ -79,6 +84,9 @@ Page({
       dataType: 'json',
       success: (res) => {
         var data = res.data;
+        this.setData({
+            isOver:true
+          });
         if (data.code == 1) {
           this.setData({
             dataObj: data.data,
@@ -120,7 +128,19 @@ Page({
   },
   //打开完成打包弹框
   showBall() {
-    if (this.data.goodsList.length > 0) {
+    if(!this.data.isOver){
+      dd.showToast({
+        type: 'none',
+        content: '正在添加商品，请稍后...',
+        duration: 2000,
+      });
+    }else if (this.data.goodsList.length == 0){
+      dd.showToast({
+        type: 'none',
+        content: "还没有包裹哦～",
+        duration: 2000
+      });
+    }else{
       dd.httpRequest({
         url: getApp().globalData.baseurl + 'package/packageinfo',
         method: 'GET',
@@ -146,12 +166,6 @@ Page({
             });
           }
         }
-      });
-    } else {
-      dd.showToast({
-        type: 'none',
-        content: "还没有包裹哦～",
-        duration: 2000
       });
     }
   },
@@ -200,7 +214,7 @@ Page({
   },
   //确认打包
   ok() {
-    if (getApp().globalData.printer == "") {
+   if (getApp().globalData.printer == "") {
       dd.showToast({
         type: 'none',
         content: '请选择打印机',
@@ -227,7 +241,8 @@ Page({
           supplier_id: this.data.id,
           time: this.data.packageObj.time,
           operator: this.data.packageObj.operator,
-          choose: getApp().globalData.printer
+          choose: getApp().globalData.printer,
+          type:this.data.type
         },
         dataType: 'json',
         success: (res) => {
@@ -255,6 +270,27 @@ Page({
               success: () => {
                 dd.navigateTo({ url: '/pages/index/printer/printer' });
               }
+            });
+          } else if (data.code == 0) {
+            dd.confirm({
+              title: '提示',
+              content: data.msg,
+              confirmButtonText: '继续',
+              cancelButtonText: '取消',
+              success: (result) => {
+                if (result.confirm == true) {
+                  this.setData({
+                    type: 0
+                  })
+                  this.ok();
+                } else {
+                  dd.showToast({
+                    type: 'none',
+                    content: "取消打包",
+                    duration: 2000
+                  });
+                };
+              },
             });
           } else {
             dd.showToast({
